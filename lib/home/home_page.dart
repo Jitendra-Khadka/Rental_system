@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rental_system/home/display_property.dart';
 import 'package:rental_system/home/review.dart';
+import 'package:rental_system/post_product/post_property.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({super.key});
@@ -24,22 +25,22 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Theme(
       data: ThemeData(
-        textTheme: TextTheme(
+        textTheme: const TextTheme(
           bodyMedium: TextStyle(color: Colors.black, fontWeight: FontWeight.w900),
         ),
       ),
       child: Scaffold(
         body: Container(
-          color: Color(0xFFD3EDF0),
+          color: const Color(0xFFD3EDF0),
           child: ListView(
             children: [
               Container(
-                color: Colors.red,
                 height: 250,
                 child: Stack(
                   children: [
                     Container(
                       height: 250,
+                      width: double.infinity,
                       child: Image.asset("images/homerent.png", fit: BoxFit.cover),
                     ),
                     Padding(
@@ -113,13 +114,20 @@ class HomePage extends StatelessWidget {
               Container(
                 height: 70,
                 color: Color(0xFFD9D9D9),
-                child: const Row(
+                child:  Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Text("Home", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
-                    Text("Add", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
-                    Text("Category", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
-                    Text("Info", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
+                    const Text("Home", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
+
+                    GestureDetector(
+                      child: Text("Add", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
+                      onTap: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => PostProperty()));
+                      }
+                    ),
+
+                    const Text("Category", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
+                    const Text("Info", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
                   ],
                 ),
               ),

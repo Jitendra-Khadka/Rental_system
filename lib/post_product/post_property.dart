@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rental_system/home/detail.dart';
 import 'package:rental_system/post_product/property_info.dart';
 
 class PostProperty extends StatelessWidget {
@@ -38,7 +39,9 @@ class PostProperty extends StatelessWidget {
 
           Center(
             child: ElevatedButton(
-              onPressed: (){},
+              onPressed: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context) => Detail())); // need to make update over here.
+              },
               child: const Text("Take photo", style: TextStyle( fontSize: 18, fontWeight: FontWeight.w500)),
             ),
           ),
